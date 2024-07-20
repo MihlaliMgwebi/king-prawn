@@ -48,4 +48,5 @@ export interface IShoppingResult {
   product: string
   price: string
   vendor: string
+  link: string
 }

@@ -1,6 +1,6 @@
 <ng-container *ngIf="(accounts$ | async); else loading">
   <ul *ngFor="let account of (accounts$ | async)">
-    <app-account-card (click)="navigateToWishlist(account.accountId)" [account]="account"/>
+    <app-account-card [account]="account"/>
   </ul>
 
 </ng-container>

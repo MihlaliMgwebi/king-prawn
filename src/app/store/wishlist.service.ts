@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { IShoppingResult, User } from './user';
+import { IShoppingResult } from '../api/shopping-result/abstractions/models/shopping-results.model';
+import { User } from './user';
+
 
 @Injectable({
   providedIn: 'root'
