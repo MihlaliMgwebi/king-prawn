@@ -6,6 +6,8 @@ import { AccountService } from '../../api/account/account.service';
 import { IShoppingResult } from '../../api/shopping-result/abstractions/models/shopping-results.model';
 import { User } from '../../store/user';
 import { WishlistService } from '../../store/wishlist.service';
+import { SearchModalComponent } from '../../components/search-modal/search-modal.component';
+
 interface Product {
   id: number;
   name: string;
@@ -19,16 +21,22 @@ interface Product {
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SearchModalComponent],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })
 export class WishlistComponent implements OnInit {
-  private _accountService = inject(AccountService);
-  private _route = inject(ActivatedRoute);
   accountId: string | undefined;
   currentBalance: IAccountBalance['currentBalance'] | 0 = 0;
   totalAmount: number = 0;
+  user: User = this.wishlistService.getUser()
+  private _accountService = inject(AccountService);
+  private _route = inject(ActivatedRoute);
+
+  constructor(
+    private wishlistService: WishlistService,
+    private route: ActivatedRoute
+  ) { }
 
   fetchAccountData(): void {
     if (this.accountId !== undefined) {
@@ -48,13 +56,6 @@ export class WishlistComponent implements OnInit {
     this.user = this.wishlistService.getUser();
     this.calculateTotalAmount(); // Recalculate total amount after removal
   }
-
-  user: User = this.wishlistService.getUser()
-
-  constructor(
-    private wishlistService: WishlistService,
-    private route: ActivatedRoute
-  ) { }
 
   ngOnInit(): void {
     if (this.user.accountId === '') {
