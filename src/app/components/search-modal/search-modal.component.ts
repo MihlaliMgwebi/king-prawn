@@ -18,7 +18,9 @@ export class SearchModalComponent {
   constructor(private searchService: ShoppingResultService) {}
 
   search(searchText: string) {
-    console.log(searchText);
+    if(this.cards) {
+      this.cards = [];
+    }
     
     this.searchService.search(searchText).subscribe((data: any) => {
       data.filtered_results.map((card: any) => {
@@ -29,13 +31,11 @@ export class SearchModalComponent {
           imgUrl: card.thumbnail
         })
       })
-      console.log(this.cards)
     })
 
   }
 
   updateSearchText(text: any) {
     this.searchText = text.target.value;
-    console.log(this.searchText)
   }
 }
