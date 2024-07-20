@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './search-card.component.scss'
 })
 export class SearchCardComponent {
+  @Input() imgUrl: string = ""
   @Input() product: string = "Nike Air Force";
   @Input() vendor: string = "Sportscene";
   @Input() price: string = "R2999.00";

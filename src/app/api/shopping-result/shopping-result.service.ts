@@ -11,6 +11,11 @@ export class ShoppingResultService {
   private _baseUrl = `${environment.apiUrl}/serp`;
   private _http = inject(HttpClient);
   constructor() { }
+
+  public search(term: string) {
+    return this._http.get(this._baseUrl + '/shop/'+term);
+  }
+
   public get():  Observable<IShoppingResult[]> {
     const resourceEndpoint = `/test`
     return this._http.get<ISerpAPIResponse>(`${this._baseUrl}${resourceEndpoint}`).pipe(

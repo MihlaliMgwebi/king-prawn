@@ -1,0 +1,28 @@
+
+<dialog id="search_modal" class="modal w-full h-full flex items-start justify-center">
+  <div class="bg-white w-full h-full p-5 flex flex-col">
+    <div class="w-full flex gap-2">
+      <label class="input flex items-center p-0 gap-2 w-4/5 bg-white border-gray-800 focus:border-gray-800 focus:outline-none focus-within:border-gray-800 focus-within:outline-none">
+        <svg class=" ml-3 w-5 h-5" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.2172 15.2346L21 21M17.6667 9.33333C17.6667 13.9357 13.9357 17.6667 9.33333 17.6667C4.73096 17.6667 1 13.9357 1 9.33333C1 4.73096 4.73096 1 9.33333 1C13.9357 1 17.6667 4.73096 17.6667 9.33333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        <input type="text" class="grow" placeholder="Search products" [value]="searchText" />
+        <svg *ngIf="enableImageSearch" class=" pr-3 w-10 h-full" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 20H4V6h9V4H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2v9zm-7.79-3.17l-1.96-2.36L5.5 18h11l-3.54-4.71zM20 4V1h-2v3h-3c.01.01 0 2 0 2h3v2.99c.01.01 2 0 2 0V6h3V4h-3z"/></svg>
+      </label>
+      <form method="dialog" class="w-1/5">
+        <button class="btn bg-white border-none shadow-none">Close</button>
+      </form>
+
+    </div>
+    <div class="flex-grow flex flex-col justify-center items-center gap-6">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36.1213 36.1629L50 50M42 22C42 33.0456 33.0456 42 22 42C10.9543 42 2 33.0456 2 22C2 10.9543 10.9543 2 22 2C33.0456 2 42 10.9543 42 22Z" stroke="#969696" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>        
+      <p class="text-primary text-2xl font-light">What are you looking for?</p>
+    </div>
+  </div>
+  <div>
+
+  </div>
+</dialog>
+    
