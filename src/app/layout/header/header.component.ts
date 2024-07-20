@@ -1,6 +1,7 @@
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
+import { ActionsService } from '../../services/actions/actions.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
   showBackButton = computed(() => this.currentRoute().includes('/wishlist'));
   showSearchButton = computed(() => this.currentRoute().includes('/wishlist'));
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private actionsService: ActionsService) {}
 
   ngOnInit(): void {
     this.getCurrentRoute();
@@ -31,10 +32,10 @@ export class HeaderComponent implements OnInit {
   }
 
   onBackClick() {
-    // TODO: navigate back
+    this.router.navigateByUrl('/accounts');
   }
 
   onSearchClick() {
-    // TODO: navigate search
+    this.actionsService.openAddModal();
   }
 }
