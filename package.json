@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:king-prawn": "node dist/king-prawn/server/server.mjs"
+    "serve:ssr:king-prawn": "node dist/king-prawn/server/server.mjs",
+    "tailwind-watch": "npx tailwindcss -i ./src/styles.scss -o ./dist/output.scss --watch"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "tailwindcss": "^3.4.6",
     "typescript": "~5.4.2"
   }
 }
