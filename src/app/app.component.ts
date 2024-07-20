@@ -2,7 +2,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './layout/header/header.component';
-import { AccountService } from './api/account/account.service';
 import {ShoppingResultService} from "./api/shopping-result/shopping-result.service";
 
 @Component({
