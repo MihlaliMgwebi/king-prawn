@@ -12,7 +12,8 @@ module.exports = {
       } ,
       textColor: {
         'grey': '#9F9F9F',
-        'primary': '#3D4451'
+        'primary': '#3D4451',
+        'text-primary': '#3D4451'
       },
       boxShadow: {
         'search-card': '0px 2px 4px 0px rgba(0, 0, 0, 0.25)',

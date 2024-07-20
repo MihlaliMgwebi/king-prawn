@@ -5,6 +5,7 @@ import {AccountService} from "../../api/account/account.service";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {AccountCardComponent} from "../../components/account-card/account-card.component";
 import {Router} from "@angular/router";
+import { SearchModalComponent } from '../../components/search-modal/search-modal.component';
 
 @Component({
   selector: 'app-accounts',
@@ -13,7 +14,8 @@ import {Router} from "@angular/router";
     NgIf,
     AsyncPipe,
     NgForOf,
-    AccountCardComponent
+    AccountCardComponent,
+    SearchModalComponent
   ],
   templateUrl: './accounts.component.html',
   styleUrl: './accounts.component.scss'

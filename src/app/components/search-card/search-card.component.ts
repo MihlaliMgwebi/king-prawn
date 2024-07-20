@@ -10,8 +10,7 @@ import { WishlistService } from '../../store/wishlist.service';
   styleUrl: './search-card.component.scss'
 })
 export class SearchCardComponent {
-  productResult = input();
-  @Input() image: string = '';
+  @Input() imgUrl: string = ""
   @Input() link: string = '';
   @Input() product: string = "Nike Air Force";
   @Input() vendor: string = "Sportscene";
@@ -29,7 +28,7 @@ export class SearchCardComponent {
 
   createProduct(): IShoppingResult {
     const pr: IShoppingResult = {
-      imgUrl: this.image,
+      imgUrl: this.imgUrl,
       product: this.product,
       price: this.price,
       vendor: this.vendor,
