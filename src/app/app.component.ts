@@ -14,8 +14,8 @@ import { AccountService } from './api/account/account.service';
 export class AppComponent {
   title = 'king-prawn';
   private _accountService = inject(AccountService);
-  constructor() { 
-    console.log(this._accountService.getList().subscribe(x => console.log(x)));
+  constructor() {
+    // console.log(this._accountService.getList().subscribe(x => console.log(x)));
   }
 
 }

@@ -5,7 +5,7 @@ import {ErrorComponent} from "./pages/error/error.component";
 
 export const routes: Routes = [
   {
-    path: 'wishlist',
+    path: 'wishlist/:id',
     component: WishlistComponent
   },
   {

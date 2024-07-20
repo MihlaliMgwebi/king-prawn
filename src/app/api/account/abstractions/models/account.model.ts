@@ -27,3 +27,4 @@ export interface ITransferList {
   theirReference: string
 }
 
+export type IAccountFullIAccount = IAccount & IAccountBalance;
