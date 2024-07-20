@@ -1,12 +1,27 @@
-<header class="h-20 w-full bg-white flex p-1 justify-between items-center">
-  <!--  TODO: add conditions-->
-  <img
-    alt="Curro Logo"
-    height="36"
-    ngSrc="assets/icons/back-button.svg"
-    width="36"
-  />
+<header class="h-20 w-full bg-white flex px-3 justify-between items-center">
+  @if(showBackButton()) {
+    <button type="button" (click)="onBackClick()">
+    <img
+      alt="Curro Logo"
+      height="36"
+      ngSrc="assets/icons/back-button.svg"
+      width="36"
+    />
+    </button>
+  } @else {
+    <div></div>
+  }
   <span class="font-bold text-3xl">{{title}}</span>
-  <!--  TODO: add conditions-->
-
+  @if(showSearchButton()) {
+    <button type="button" (click)="onSearchClick()">
+    <img
+      alt="Curro Logo"
+      height="36"
+      ngSrc="assets/icons/search.svg"
+      width="36"
+    />
+    </button>
+  } @else {
+    <div></div>
+  }
 </header>
