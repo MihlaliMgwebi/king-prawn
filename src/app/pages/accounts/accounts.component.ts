@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {Observable, switchMap} from "rxjs";
 import {IAccount} from "../../api/account/abstractions/models/account.model";
 import {AccountService} from "../../api/account/account.service";
@@ -20,11 +20,7 @@ import {Router} from "@angular/router";
 })
 export class AccountsComponent {
   accounts$: Observable<IAccount[]> = this.accountService.getList();
-
+  // @ViewChild('my_modal_7') modal : ElementRef;
   constructor(private accountService: AccountService, private router: Router) {
-  }
-
-  navigateToWishlist(accountId: string){
-    this.router.navigate([`/wishlist/${accountId}`])
   }
 }

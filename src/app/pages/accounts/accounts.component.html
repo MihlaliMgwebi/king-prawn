@@ -1,8 +1,6 @@
 <ng-container *ngIf="(accounts$ | async); else loading">
-  <ul class="h-full flex flex-col list-none overflow-scroll bg-white gap-4 p-4">
-  <li *ngFor="let account of (accounts$ | async)">
-    <app-account-card (click)="navigateToWishlist(account.accountId)" [account]="account"/>
-  </li>
+  <ul *ngFor="let account of (accounts$ | async)">
+    <app-account-card [account]="account"/>
   </ul>
 
 </ng-container>
