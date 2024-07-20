@@ -4,13 +4,14 @@ import {map, Observable} from "rxjs";
 import {IAccount, IAccountBalance, ITransferList} from "./abstractions/models/account.model";
 import {IAPIResponse} from "../../abstractions/models/api-response.model";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private _baseUrl = `${environment.host}/za/pb/v1/accounts`;
+  private _baseUrl = `${environment.apiUrl}/investec/api/accounts`;
   private _http = inject(HttpClient);
   constructor() { }
 
