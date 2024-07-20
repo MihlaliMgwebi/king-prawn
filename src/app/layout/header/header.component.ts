@@ -14,8 +14,8 @@ import { NavigationEnd, Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   title = 'Accounts';
   currentRoute = signal('');
-  showBackButton = computed(() => this.currentRoute() === '/wishlist');
-  showSearchButton = computed(() => this.currentRoute() === '/wishlist');
+  showBackButton = computed(() => this.currentRoute().includes('/wishlist'));
+  showSearchButton = computed(() => this.currentRoute().includes('/wishlist'));
 
   constructor(private router: Router) {}
 
