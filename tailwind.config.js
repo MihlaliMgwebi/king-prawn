@@ -15,7 +15,9 @@ module.exports = {
         'primary': '#3D4451'
       },
       boxShadow: {
-        'search-card': '0px 2px 4px 0px rgba(0, 0, 0, 0.25);'
+        'search-card': '0px 2px 4px 0px rgba(0, 0, 0, 0.25)',
+        'normal': '0 0.25rem 0.5rem rgba(0, 0, 0, 0.25)',
+        'focus': '0 0.25rem 0.75rem rgba(0, 0, 0, 0.75)',
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
