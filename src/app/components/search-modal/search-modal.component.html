@@ -27,7 +27,7 @@
     <ng-template #showCards>
       <div class="flex flex-col gap-6 mt-10 overflow-y-scroll">
         <ng-container *ngFor="let card of cards">
-          <app-search-card [imgUrl]="card.imgUrl" [price]="card.price" [product]="card.product" [vendor]="card.vendor"></app-search-card>
+          <app-search-card [imgUrl]="card.imgUrl" [price]="card.price" [product]="card.product" [vendor]="card.vendor" (buttonClick)="addToWishlist()"></app-search-card>
         </ng-container>
       </div>
     </ng-template>

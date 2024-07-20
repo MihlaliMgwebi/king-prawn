@@ -12,9 +12,9 @@ import { WishlistService } from '../../store/wishlist.service';
 export class SearchCardComponent {
   @Input() imgUrl: string = ""
   @Input() link: string = '';
-  @Input() product: string = "Nike Air Force";
-  @Input() vendor: string = "Sportscene";
-  @Input() price: string = "R2999.00";
+  @Input() product: string = "";
+  @Input() vendor: string = "";
+  @Input() price: string = "";
   @Output() buttonClick = new EventEmitter();
 
   constructor(

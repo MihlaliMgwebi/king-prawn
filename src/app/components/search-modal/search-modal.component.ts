@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ShoppingResultService } from '../../api/shopping-result/shopping-result.service';
 import { SearchCardComponent } from "../search-card/search-card.component";
 
@@ -14,6 +14,7 @@ export class SearchModalComponent {
   enableImageSearch = false;
   searchText = "";
   cards: any[] = [];
+  @Output() clicked = new EventEmitter();
 
   constructor(private searchService: ShoppingResultService) {}
 
@@ -37,5 +38,9 @@ export class SearchModalComponent {
 
   updateSearchText(text: any) {
     this.searchText = text.target.value;
+  }
+
+  addToWishlist() {
+    this.clicked.emit();
   }
 }

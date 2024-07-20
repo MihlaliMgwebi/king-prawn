@@ -47,8 +47,20 @@ export class WishlistComponent implements OnInit {
     }
   }
 
-  calculateTotalAmount(): void {
-    this.totalAmount = this.user.wishlist.reduce((sum, product) => sum + product.price, 0);
+  calculateTotalAmount() {
+    if(this.user.wishlist) {
+      this.totalAmount = this.user.wishlist.reduce((sum, product) => {
+        console.log("Sum:", sum);
+        console.log("Product:", product.price)
+        if(product) {
+          return sum + product.price;
+        } else {
+          return 1;
+        }
+      });
+    }
+
+    return this.totalAmount;
   }
 
   removeProduct(product: IShoppingResult): void {
@@ -69,6 +81,10 @@ export class WishlistComponent implements OnInit {
       });
       this.calculateTotalAmount();
     }
+  }
+
+  updatePage(): void {
+    this.user = this.wishlistService.getUser();
   }
 
 }
