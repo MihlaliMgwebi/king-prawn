@@ -13,8 +13,8 @@ import { ActionsService } from '../../services/actions/actions.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  title = 'Accounts';
   currentRoute = signal('');
+  title = computed(() => this.currentRoute().includes('/accounts') ? 'Accounts' : 'Wishlist');
   showBackButton = computed(() => this.currentRoute().includes('/wishlist'));
   showSearchButton = computed(() => this.currentRoute().includes('/wishlist'));
 
@@ -33,9 +33,5 @@ export class HeaderComponent implements OnInit {
 
   onBackClick() {
     this.router.navigateByUrl('/accounts');
-  }
-
-  onSearchClick() {
-    this.actionsService.openAddModal();
   }
 }
