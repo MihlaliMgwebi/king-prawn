@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IAccountBalance } from '../../api/account/abstractions/models/account.model';
 import { AccountService } from '../../api/account/account.service';
 import { User } from '../../store/user';
+import { IShoppingResult } from '../../api/shopping-result/abstractions/models/shopping-results.model';
 import { WishlistService } from '../../store/wishlist.service';
 interface Product {
   id: number;
@@ -149,7 +150,7 @@ export class WishlistComponent implements OnInit {
         const userId = +params['userId'];
         const user: User = {
           accountId: userId.toString(),
-          wishlist: []
+          wishlist: this.products as unknown as IShoppingResult[]
         };
         this.wishlistService.setUser(user);
       });
