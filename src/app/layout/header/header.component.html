@@ -11,9 +11,9 @@
   } @else {
     <div></div>
   }
-  <span class="font-bold text-3xl">{{title}}</span>
+  <span class="font-bold text-3xl">{{title()}}</span>
   @if(showSearchButton()) {
-    <button type="button" (click)="onSearchClick()">
+    <button type="button" onclick="my_modal_1.showModal()">
     <img
       alt="Add"
       height="36"
