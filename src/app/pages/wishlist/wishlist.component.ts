@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IAccountBalance } from '../../api/account/abstractions/models/account.model';
+import { AccountService } from '../../api/account/account.service';
 interface Product {
   id: number;
   name: string;
@@ -18,6 +21,13 @@ interface Product {
   styleUrl: './wishlist.component.scss'
 })
 export class WishlistComponent {
+  private _accountService = inject(AccountService);
+  private _route = inject(ActivatedRoute);
+  accountId: string | undefined;
+  currentBalance: IAccountBalance['currentBalance'] | 0 = 0;
+  totalAmount: number = 0;
+
+  constructor() {} 
   products: Product[] = [
     {
       id: 1,
@@ -103,11 +113,18 @@ export class WishlistComponent {
 
 
 
-  totalAmount: number = 0;
-  currentBalance: number = 70; // Example balance
 
   ngOnInit(): void {
     this.calculateTotalAmount();
+  }
+
+  fetchAccountData(): void {
+    if (this.accountId !== undefined) {
+      this._accountService.getBalance(this.accountId).subscribe(balance => {
+        this.currentBalance = balance.currentBalance;
+        this.calculateTotalAmount(); // Recalculate total amount after setting balance
+      });
+    }
   }
 
   calculateTotalAmount(): void {
@@ -118,4 +135,6 @@ export class WishlistComponent {
     this.products = this.products.filter(product => product.id !== productId);
     this.calculateTotalAmount(); // Recalculate total amount after removal
   }
+
+
 }
