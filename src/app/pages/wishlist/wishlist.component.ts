@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IAccountBalance } from '../../api/account/abstractions/models/account.model';
 import { AccountService } from '../../api/account/account.service';
+import { User } from '../../store/user';
+import { WishlistService } from '../../store/wishlist.service';
 interface Product {
   id: number;
   name: string;
@@ -20,14 +22,13 @@ interface Product {
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })
-export class WishlistComponent {
+export class WishlistComponent implements OnInit {
   private _accountService = inject(AccountService);
   private _route = inject(ActivatedRoute);
   accountId: string | undefined;
   currentBalance: IAccountBalance['currentBalance'] | 0 = 0;
   totalAmount: number = 0;
 
-  constructor() {} 
   products: Product[] = [
     {
       id: 1,
@@ -114,9 +115,7 @@ export class WishlistComponent {
 
 
 
-  ngOnInit(): void {
-    this.calculateTotalAmount();
-  }
+
 
   fetchAccountData(): void {
     if (this.accountId !== undefined) {
@@ -136,5 +135,26 @@ export class WishlistComponent {
     this.calculateTotalAmount(); // Recalculate total amount after removal
   }
 
+
+  user: User = this.wishlistService.getUser()
+
+  constructor(
+    private wishlistService: WishlistService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    if (this.user.accountId === '') {
+      this.route.params.subscribe(params => {
+        const userId = +params['userId'];
+        const user: User = {
+          accountId: userId.toString(),
+          wishlist: []
+        };
+        this.wishlistService.setUser(user);
+      });
+      this.calculateTotalAmount();
+    }
+  }
 
 }
