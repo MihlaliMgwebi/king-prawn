@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
+import { IShoppingResult } from '../../api/shopping-result/abstractions/models/shopping-results.model';
+import { WishlistService } from '../../store/wishlist.service';
 
 @Component({
   selector: 'app-search-card',
@@ -8,12 +10,31 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './search-card.component.scss'
 })
 export class SearchCardComponent {
+  productResult = input();
+  @Input() image: string = '';
+  @Input() link: string = '';
   @Input() product: string = "Nike Air Force";
   @Input() vendor: string = "Sportscene";
   @Input() price: string = "R2999.00";
   @Output() buttonClick = new EventEmitter();
 
-  addToWishlist() {
+  constructor(
+    private wishlistService: WishlistService
+  ) { }
+
+  addToWishlist(product: IShoppingResult) {
+    this.wishlistService.addItem(product);
     this.buttonClick.emit();
+  }
+
+  createProduct(): IShoppingResult {
+    const pr: IShoppingResult = {
+      imgUrl: this.image,
+      product: this.product,
+      price: this.price,
+      vendor: this.vendor,
+      link: this.link
+    }
+    return pr
   }
 }
