@@ -3,8 +3,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IAccountBalance } from '../../api/account/abstractions/models/account.model';
 import { AccountService } from '../../api/account/account.service';
-import { User } from '../../store/user';
 import { IShoppingResult } from '../../api/shopping-result/abstractions/models/shopping-results.model';
+import { User } from '../../store/user';
 import { WishlistService } from '../../store/wishlist.service';
 interface Product {
   id: number;
@@ -113,11 +113,6 @@ export class WishlistComponent implements OnInit {
     },
   ];
 
-
-
-
-
-
   fetchAccountData(): void {
     if (this.accountId !== undefined) {
       this._accountService.getBalance(this.accountId).subscribe(balance => {
@@ -128,14 +123,14 @@ export class WishlistComponent implements OnInit {
   }
 
   calculateTotalAmount(): void {
-    this.totalAmount = this.products.reduce((sum, product) => sum + product.price, 0);
+    this.totalAmount = this.user.wishlist.reduce((sum, product) => sum + product.price, 0);
   }
 
-  removeProduct(productId: number): void {
-    this.products = this.products.filter(product => product.id !== productId);
+  removeProduct(product: IShoppingResult): void {
+    this.wishlistService.removeItem(product);
+    this.user = this.wishlistService.getUser();
     this.calculateTotalAmount(); // Recalculate total amount after removal
   }
-
 
   user: User = this.wishlistService.getUser()
 
