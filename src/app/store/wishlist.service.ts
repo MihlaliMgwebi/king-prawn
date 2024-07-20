@@ -5,7 +5,10 @@ import { IShoppingResult, User } from './user';
   providedIn: 'root'
 })
 export class WishlistService {
-  private _user: User = {} as User;
+  private _user: User = {
+    accountId: '',
+    wishlist: []
+  };
 
   // Getter for the user
   getUser(): User {
