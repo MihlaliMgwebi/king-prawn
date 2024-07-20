@@ -1,0 +1,28 @@
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn hover:bg-opacity-5 bg-transparent border-none shadow-none text-sm font-normal text-primary" onclick="sort_modal.showModal()">
+    <img src="assets/icons/sort-vertical.svg">
+    Sort by
+</button>
+<dialog id="sort_modal" class="modal">
+  <div class="modal-box px-8 w-full h-[95%] bottom-0 absolute rounded-b-none rounded-t-lg bg-white">
+      <div class="modal-action justify-between items-center">
+          <span class="text-xl font-bold text-black">Sort by</span>
+          <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-circle bg-transparent border-none shadow-none"><img src="assets/icons/close.svg"></button>
+      </form>
+    </div>
+    <div class="flex items-center gap-4 h-[75px] border-b-[0.5px] border-b-feint-grey px-3 py-5">
+        <input type="radio" id="rel" name="fav_language" value="HTML">
+        <label for="rel" class="text-lg font-normal">Relevance</label><br>
+    </div>
+    <div class="flex items-center gap-4 h-[75px] border-b-[0.5px] border-b-feint-grey px-3 py-5">
+        <input type="radio" id="price" name="fav_language" value="CSS">
+        <label for="price">Price: high to low</label><br>
+    </div>
+    <div class="flex items-center gap-4 h-[75px] border-b-[0.5px] border-b-feint-grey px-3 py-5">
+        <input type="radio" id="review" name="fav_language" value="JavaScript">
+        <label for="review">Most reviews</label>
+    </div>
+  </div>
+</dialog>
