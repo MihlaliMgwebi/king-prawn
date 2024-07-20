@@ -4,7 +4,8 @@ import {map, Observable} from "rxjs";
 import {IAccount, IAccountBalance, ITransferList} from "./abstractions/models/account.model";
 import {IAPIResponse} from "../../abstractions/models/api-response.model";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
+import {environment} from "../../../environments/emvironment";
+
 
 @Injectable({
   providedIn: 'root'

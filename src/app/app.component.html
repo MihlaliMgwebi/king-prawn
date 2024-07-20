@@ -1,1 +1,26 @@
-<router-outlet></router-outlet>
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <p class="py-4">I would like to:</p>
+      <div class="modal-action">
+      <form method="dialog" class="w-full">
+        <div>
+          <button class="text-lg">Transfer</button>
+        </div>
+        <div class="form-control">
+          <label class="label cursor-pointer">
+            <span class="text-lg">Wishlist</span>
+            <input type="checkbox" class="toggle" checked="checked" />
+          </label>
+        </div>
+
+        <ng-template>
+          <a></a>
+        </ng-template>
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
