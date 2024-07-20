@@ -15,7 +15,6 @@ export class AccountService {
   private _http = inject(HttpClient);
   constructor() { }
 
-  // TODO endpoints from Kivesh
   // GET {{host}}/za/pb/v1/accounts
   public getList():  Observable<IAccount[]> {
     const resourceEndpoint = ''
